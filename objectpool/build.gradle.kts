@@ -4,19 +4,21 @@ plugins {
     id("maven-publish")
 }
 
-publishing {
-    publications {
-        register<MavenPublication>("release") {
-            groupId = "ceui.lisa.objectpool"
-            artifactId = "ceui-library"
-            version = "1.0"
+afterEvaluate {
+    publishing {
+        publications {
+            register<MavenPublication>("release") {
+                groupId = "ceui.lisa.objectpool"
+                artifactId = "ceui-library"
+                version = "1.0"
 
-            afterEvaluate {
                 from(components["release"])
             }
         }
     }
 }
+
+
 
 android {
     namespace = "com.common.objectpool"
